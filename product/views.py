@@ -1,6 +1,8 @@
+from typing import Any
+from django.db.models.query import QuerySet
 from django.shortcuts import render
 from django .views.generic import ListView ,DetailView
-from . models import Product , Brand , ProductImages , Review
+from . models import Product , Brand , Review , ProductImages
 
 
 class ProductList(ListView):
@@ -18,8 +20,26 @@ class ProductDetail(DetailView):
         context["related_products"]=Product.objects.filter(brand = self.get_object().brand)
         return context
     
-
-
-
 class BrandList(ListView):
-    model = Brand    
+    model = Brand  
+
+class BrandDetail(ListView) :
+   model = Product
+   template_name ='product/brand_detail.html' 
+   paginate_by = 20
+
+
+   def get_queryset(self) :
+      brand = Brand.objects.get(slug =self.kwargs['slug'])
+      return super().get_queryset().filter(brand=brand)
+
+
+
+   def get_context_data(self, **kwargs) :
+      context=super().get_context_data(**kwargs)
+      context["brand"]= Brand.objects.get(slug =self.kwargs['slug'])
+      return context
+    
+
+
+    
