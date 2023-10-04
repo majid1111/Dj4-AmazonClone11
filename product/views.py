@@ -99,6 +99,7 @@ def queryst_debug(request):                                #ممكن استخد�
 
 class ProductList(ListView):
     model = Product
+    paginate_by = 30
 
 
 
