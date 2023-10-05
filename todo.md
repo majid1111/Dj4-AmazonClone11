@@ -1,0 +1,13 @@
+API
+postman
+user
+order
+cart
+coupons
+docker
+celery
+translation
+caching
+redis
+deploy
+ajax
