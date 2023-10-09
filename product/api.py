@@ -4,6 +4,7 @@ from.serializers import ProductListSerilizer,ProductDetailSerilizer , BrandListS
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework import filters
 from.myfiltr import Productfilter
+from.mypagination import MyPagination
 from .models import Product ,Brand
 from rest_framework import generics
 
@@ -37,7 +38,8 @@ class ProductListAPI(generics.ListCreateAPIView):
     search_fields = ['name', 'subtitle','description']
     ordering_fields = ['price', 'quantity']
     filterset_class = Productfilter
-    
+    pagination_class = MyPagination
+
 
 
 class ProductDetailAPI(generics.RetrieveUpdateDestroyAPIView):
