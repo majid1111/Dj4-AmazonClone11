@@ -58,7 +58,7 @@ class ReviewsSerializer(serializers.ModelSerializer):
 
 
 
-class ProductDetailSerilizer(TagListSerializerField,serializers.ModelSerializer):
+class ProductDetailSerilizer(serializers.ModelSerializer):
     brand = serializers.StringRelatedField()
     avg_rate = serializers.SerializerMethodField()
     reviews_count= serializers.SerializerMethodField()

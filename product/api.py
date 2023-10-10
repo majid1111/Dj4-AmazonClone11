@@ -2,6 +2,7 @@
 # from rest_framework.response import Response
 from.serializers import ProductListSerilizer,ProductDetailSerilizer , BrandListSerilizer,BrandDetailSerilizer
 from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework.permissions import IsAuthenticated
 from rest_framework import filters
 from.myfiltr import Productfilter
 from.mypagination import MyPagination
@@ -39,12 +40,15 @@ class ProductListAPI(generics.ListCreateAPIView):
     ordering_fields = ['price', 'quantity']
     filterset_class = Productfilter
     pagination_class = MyPagination
+    permission_classes = [IsAuthenticated]
+    
 
 
 
 class ProductDetailAPI(generics.RetrieveUpdateDestroyAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductDetailSerilizer  
+   
 
 
 
