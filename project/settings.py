@@ -47,12 +47,12 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'rest_framework_simplejwt',
     'dj_rest_auth',
-     'dj_rest_auth.registration',
+    'dj_rest_auth.registration',
 
 
     'product',
     'setting',
-    'orders',
+    'orders' ,
 ]
 
 REST_FRAMEWORK = {
@@ -103,6 +103,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'setting.company_context_processor.get_company_data',
+                'orders.cart_context_processor.get_or_creat_cart',
                 
             ],   
         },
