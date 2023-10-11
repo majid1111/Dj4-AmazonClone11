@@ -24,3 +24,24 @@ Product :
 - description
 - related items
 - quantity
+
+----------------------------------
+
+orders:
+code
+order time
+delivery time
+address
+discount
+total products
+delivery fee
+status[Recived,Processed,Shipped.Delivery]
+
+products:
+name
+image
+price
+quantity
+brand
+
+
