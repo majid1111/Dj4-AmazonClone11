@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-10-12 18:41+0400\n"
+"POT-Creation-Date: 2023-10-12 22:54+0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -70,3 +70,21 @@ msgstr "التقييم"
 #: product/models.py:84
 msgid "Created_at"
 msgstr "تاريخ الانشاء"
+
+#: templates/base.html:165
+msgid "Home"
+msgstr "الصفحةالرئيسية"
+
+#: templates/base.html:169
+msgid "Shop"
+msgstr "تسوق"
+
+#: templates/base.html:174
+#, fuzzy
+#| msgid "Brand"
+msgid "Brands"
+msgstr "الماركة"
+
+#: templates/base.html:178
+msgid "Orders"
+msgstr "الطلبات"
