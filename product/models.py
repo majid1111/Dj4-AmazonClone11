@@ -23,7 +23,7 @@ class Product (models.Model):
     subtitle = models.CharField(_('Subtitle'),max_length=300)
     description = models.TextField(_('Description'),max_length=40000)
     quantity = models.IntegerField(_('Quantity'))
-    brand = models.ForeignKey('Brand',verbose_name=('Brand'),related_name='product_brand',on_delete=models.SET_NULL,null=True)
+    brand = models.ForeignKey('Brand',verbose_name=_('Brand'),related_name='product_brand',on_delete=models.SET_NULL,null=True)
     tags = TaggableManager()
     slug = models.SlugField(null=True,blank=True)
 
@@ -50,7 +50,7 @@ class Product (models.Model):
 
 
 class ProductImages(models.Model):
-   product = models.ForeignKey(Product,verbose_name=('Product'),related_name='product_image',on_delete=models.CASCADE)
+   product = models.ForeignKey(Product,verbose_name=_('Product'),related_name='product_image',on_delete=models.CASCADE)
    image = models.ImageField(_('Image'),upload_to='product_images')
 
    def __str__(self):
@@ -78,7 +78,7 @@ class Brand(models.Model):
 
 class Review(models.Model):
     user = models.ForeignKey(User,verbose_name=('User'),related_name= 'review_author',on_delete=models.SET_NULL,null=True)
-    product = models.ForeignKey(Product,verbose_name=('Product'),related_name= 'review_product',on_delete=models.CASCADE)
+    product = models.ForeignKey(Product,verbose_name=_('Product'),related_name= 'review_product',on_delete=models.CASCADE)
     rate = models.IntegerField(_('Rate'),)
     review = models.CharField(_('Review'),max_length=300)
     created_at = models.DateTimeField(_('Created_at'),default=timezone.now)
