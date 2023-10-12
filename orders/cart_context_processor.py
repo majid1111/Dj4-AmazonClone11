@@ -12,4 +12,4 @@ def get_or_creat_cart(request):
 
         return {'cart_date':cart}
     else:
-        return{}
+        return {}
