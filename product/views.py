@@ -8,7 +8,8 @@ from django.db.models.aggregates import Max , Min , Count , Avg , Sum
 
 
 
-def queryst_debug(request):                                #ممكن استخدم بدل all ب filter
+def queryst_debug(request):
+                                 #ممكن استخدم بدل all ب filter
     #data = Product.objects.select_related('brand').all()  #ممكن اعمل نفس العمليه عن طريق prefetch_related لكن هذا استخدمها عندما تكون العلاقه many-to-many
     #data = Product.objects.filter(price__gt=70) اكبر
     #data = Product.objects.filter(price__gte=70) اكبر يساوي
@@ -90,7 +91,7 @@ def queryst_debug(request):                                #ممكن استخد�
 
 
 
-    return render(request,'product/debug.html',{'data':data})
+     return render(request,'product/debug.html',{'data':data})
     
  
 

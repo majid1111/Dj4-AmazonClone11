@@ -14,7 +14,7 @@ FLAG_TYPES = (
 )
 
 
-class Product (models.Model):
+class Product(models.Model):
     name = models.CharField(_('Name'),max_length=250)
     flag = models.CharField(_('Flag'),max_length=10,choices=FLAG_TYPES)
     image = models.ImageField(_('Image'),upload_to='products')
