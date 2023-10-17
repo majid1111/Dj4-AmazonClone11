@@ -23,7 +23,7 @@ class CartSerializer(serializers.ModelSerializer):
 
 
 
-class orderListserializer(serializers.ModelSerializer) :
+class OrderListserializer(serializers.ModelSerializer) :
     user = serializers.StringRelatedField()
     class Meta:
         model = Order 
@@ -42,7 +42,7 @@ class OrderProductsSerializer(serializers.ModelSerializer):
 
 class OrderDetailSerializer(serializers.ModelSerializer):
       user = serializers.StringRelatedField()
-      products = OrderProductsSerializer(many=True,soure='order_detail')
+      products = OrderProductsSerializer(many=True,source='order_detail')
       class Meta:
         model = Order 
         fields = '__all__'   

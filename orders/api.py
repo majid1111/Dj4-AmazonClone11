@@ -2,8 +2,8 @@ from rest_framework import generics
 from rest_framework.response import Response
 from django.shortcuts import get_object_or_404
 from django.contrib.auth.models import User
-from.serializers import CartSerializer
-from.models import Cart ,CartDetail
+from.serializers import CartSerializer,OrderListserializer,OrderDetailSerializer
+from.models import Cart ,CartDetail,Order,OrderDetail
 from product.models import Product
 
 
@@ -41,3 +41,25 @@ class CartDetailCreateAPI(generics.GenericAPIView):
         cart = Cart.objects.get(user = user,status='InProgress')
         data = CartSerializer(cart).data
         return Response({'messsage':'product deleted successfully','cart':data})
+    
+
+class OrderListAPI(generics.ListAPIView):
+        serializer_class=OrderListserializer
+        queryset = Order.objects.all()
+
+
+
+        def list(self,request,*args,**kwargs):
+             user = User.objects.get(username = self.kwargs['username'])
+             queryset = self.get_queryset().filter(user = user)
+             data = OrderListserializer(queryset,many=True).data
+             return Response(data)
+        
+
+
+        # def get_queryset(self):
+        #      queryset = super(OrderListAPI,self).get_queryset()
+        #      user = User.objects.get(username = self.kwargs['username'])
+        #      queryset = queryset.filter(user = user)
+            
+        #      return queryset        
