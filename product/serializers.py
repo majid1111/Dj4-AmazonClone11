@@ -100,3 +100,11 @@ class BrandDetailSerilizer(serializers.ModelSerializer):
     class Meta:
         model = Brand
         fields = '__all__'        
+
+
+
+class ProductCartSerializer(serializers.ModelSerializer):
+    
+    class Meta:
+        model = Product
+        fields = ['name','image','price']
